@@ -3,6 +3,7 @@ package merkle
 
 import (
 	"encoding/hex"
+	"log"
 	"math"
 	"sort"
 
@@ -241,6 +242,7 @@ func (t *Tree) uncommittedDiff() (PartialTree, error) {
 
 	// get uncommitted partial layer
 	partialTreeLayers, uncommittedTreeDepth := t.uncommittedPartialTreeLayers()
+	log.Printf("partialTreeLayers: %+v \nuncommittedTreeDepth: %d", partialTreeLayers, uncommittedTreeDepth)
 
 	// build partial tree and return
 	tree := NewPartialTree(t.hasher)
